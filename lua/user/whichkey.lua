@@ -30,7 +30,7 @@ local setup = {
     -- override the label used to display some keys. It doesn't effect WK in any other way.
     -- For example:
     -- ["<space>"] = "SPC",
-    ["<leader>"] = "SPC",
+    -- ["<leader>"] = "SPC",
     -- ["<cr>"] = "RET",
     -- ["<tab>"] = "TAB",
   },
@@ -72,7 +72,7 @@ local setup = {
 
 local opts = {
   mode = "n", -- NORMAL mode
-  prefix = "<leader>",
+  prefix = ".",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps

@@ -6,6 +6,8 @@ end
 local actions = require "telescope.actions"
 telescope.load_extension "media_files"
 local icons = require "user.icons"
+local builtin = require "telescope.builtin"
+local keymap = vim.api.nvim_set_keymap
 
 telescope.setup {
   defaults = {
@@ -187,7 +189,6 @@ telescope.setup {
       initial_mode = "normal",
     },
 
-
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -205,3 +206,23 @@ telescope.setup {
     },
   },
 }
+
+keymap("n", "<Leader>tv", "", {
+  callback = function()
+    builtin.find_files {
+      prompt_title = "< Nvim >",
+      cwd = "$HOME/.config/nvim",
+      file_ignore_patterns = { ".git/*", ".github/*", ".gitignore", "LICENSE", "node_modules/.*" },
+    }
+  end,
+})
+
+keymap("n", "<Leader>th", "", {
+  callback = function()
+    builtin.find_files {
+      prompt_title = "< Nvim >",
+      cwd = "$HOME",
+      file_ignore_patterns = { ".git/*", ".github/*", ".gitignore", "LICENSE", "undodir/.*" },
+    }
+  end,
+})

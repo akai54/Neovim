@@ -192,6 +192,7 @@ run = "./install.sh" }
   use "ruifm/gitlinker.nvim"
   use "mattn/vim-gist"
   use "mattn/webapi-vim"
+  use "tpope/vim-fugitive"
 
   -- Github
   use "pwntester/octo.nvim"
@@ -229,6 +230,9 @@ run = "./install.sh" }
     run = "cd app && npm install",
     ft = "markdown",
   }
+
+  -- Undotree
+  use "mbbill/undotree"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

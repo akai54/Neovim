@@ -66,6 +66,7 @@ local setup = {
     -- most people should not need to change this
     i = { "j", "k" },
     v = { "j", "k" },
+    n = { "[", "]", "s", "S", "gb", "gc" },
   },
 }
 

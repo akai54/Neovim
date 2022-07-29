@@ -12,8 +12,6 @@ keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-keymap("n", "<C-i>", "<C-i>", opts)
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",

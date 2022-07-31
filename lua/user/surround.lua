@@ -5,16 +5,16 @@ end
 
 surround.setup {
   keymaps = { -- vim-surround style keymaps
-    insert = "<C-g>s",
-    insert_line = "<C-g>S",
-    normal = "s",
-    normal_cur = "ss",
-    normal_line = "S",
-    normal_cur_line = "SS",
-    visual = "s",
-    visual_line = "gS",
-    delete = "ds",
-    change = "cs",
+    [[insert = "<C-g>g",
+    insert_line = "<C-g>G",
+    normal = "g",
+    normal_cur = "gg",
+    normal_line = "g",
+    normal_cur_line = "GG",
+    visual = "g",
+    visual_line = "gG",
+    delete = "dg",
+    change = "cg",]],
   },
   -- TODO: come back and fix this
   -- surrounds = {

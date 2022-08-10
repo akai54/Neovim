@@ -202,6 +202,10 @@ keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 
+-- Go to the end or the beggining of the line.
+keymap("i", "<C-a>", "<ESC>A", opts)
+keymap("i", "<C-i>", "<ESC>I", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
@@ -217,5 +221,8 @@ keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Paste the content from the _dP. --
 keymap("v", "p", '"_dP', opts)
+
+-- Paste the content from the insert_mode clipboard. --
+keymap("v", "<S-.>", '"7d".P', opts)
 
 return M

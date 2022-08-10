@@ -99,7 +99,6 @@ run = "./install.sh" }
   use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
 
-  use "kylechui/nvim-surround"
   use {
     "abecodes/tabout.nvim",
     wants = { "nvim-treesitter" }, -- or require if not used so far

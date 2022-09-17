@@ -183,6 +183,8 @@ local c = vim.api.nvim_create_autocmd
 local cpp = vim.api.nvim_create_autocmd
 local go = vim.api.nvim_create_autocmd
 local js = vim.api.nvim_create_autocmd
+local py = vim.api.nvim_create_autocmd
+local asm = vim.api.nvim_create_autocmd
 
 local lsp = vim.api.nvim_create_autocmd
 local format = vim.api.nvim_create_autocmd
@@ -263,6 +265,24 @@ js("FileType", {
   callback = function()
     keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !node<CR>", optn)
     keymap(0, "v", "<F9>", ":w !node<CR>", optn)
+  end,
+  group = Compile,
+})
+
+py("FileType", {
+  pattern = "python",
+  callback = function()
+    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !python3<CR>", optn)
+    keymap(0, "v", "<F9>", ":w !python3<CR>", optn)
+  end,
+  group = Compile,
+})
+
+py("FileType", {
+  pattern = "asm",
+  callback = function()
+    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
+    keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
   end,
   group = Compile,
 })

@@ -21,7 +21,7 @@ null_ls.setup {
     formatting.stylua,
     formatting.shfmt,
     formatting.google_java_format,
-    -- diagnostics.flake8,
+    diagnostics.flake8,
     diagnostics.shellcheck,
   },
 }
@@ -44,7 +44,7 @@ local unwrap = {
             col = col,
             end_col = end_col,
             source = "unwrap",
-            message = "hey " .. os.getenv("USER") .. ", don't forget to handle this" ,
+            message = "hey " .. os.getenv "USER" .. ", don't forget to handle this",
             severity = 2,
           })
         end

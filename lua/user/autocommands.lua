@@ -185,6 +185,7 @@ local go = vim.api.nvim_create_autocmd
 local js = vim.api.nvim_create_autocmd
 local py = vim.api.nvim_create_autocmd
 local asm = vim.api.nvim_create_autocmd
+local ocaml = vim.api.nvim_create_autocmd
 
 local lsp = vim.api.nvim_create_autocmd
 local format = vim.api.nvim_create_autocmd
@@ -245,7 +246,7 @@ cpp("FileType", {
       0,
       "n",
       "<F9>",
-      ":w <bar> exec '!g++ '.shellescape('%').' -std=c++17 -Wall -Wextra -Werror -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>",
+      ":w <bar> exec '!g++ '.shellescape('%').' -std=c++17 -Wall -Wextra -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>",
       optn
     )
   end,
@@ -278,11 +279,21 @@ py("FileType", {
   group = Compile,
 })
 
-py("FileType", {
+asm("FileType", {
   pattern = "asm",
   callback = function()
     keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
     keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
+  end,
+  group = Compile,
+})
+
+ocaml("FileType", {
+  pattern = "ocaml",
+  callback = function()
+    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !ocamlopt % -o %:r && ./%:r<CR>", optn)
+    keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !ocamlopt % -o %:r && ./%:r<CR>", optn)
+    keymap(0, "n", "<F12>", ":w<CR>:echo ''<CR>:w !./../_build/default/bin/main.exe<CR>", optn)
   end,
   group = Compile,
 })

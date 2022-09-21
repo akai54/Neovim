@@ -23,6 +23,7 @@ local servers = {
   "rust_analyzer",
   "taplo",
   "pyright",
+  "ocamllsp",
 }
 
 local settings = {

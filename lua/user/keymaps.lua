@@ -21,12 +21,11 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
-keymap("n", "<m-h>", "<C-w>h", opts)
-keymap("n", "<m-j>", "<C-w>j", opts)
-keymap("n", "<m-k>", "<C-w>k", opts)
-keymap("n", "<m-l>", "<C-w>l", opts)
-keymap("n", "<m-tab>", "<c-6>", opts)
+-- Better window navigation --
+keymap("n", "<C-Left>", "<C-w>h", opts)
+keymap("n", "<C-Down>", "<C-w>j", opts)
+keymap("n", "<C-Up>", "<C-w>k", opts)
+keymap("n", "<C-Right>", "<C-w>l", opts)
 
 -- Resize with arrows --
 keymap("n", "<S-Up>", ":resize -2<CR>", opts)
@@ -121,11 +120,11 @@ keymap("n", "<leader>q", ":Bdelete<CR>", opts)
 -- QuickFix List --
 keymap("n", "<C-o>", ":copen<CR>", opts)
 keymap("n", "<C-q>", ":cclose<CR>", opts)
-keymap("n", "<M-k>", ":cprev<CR>", opts)
-keymap("n", "<M-j>", ":cnext<CR>", opts)
+keymap("n", "<C-k>", ":cprev<CR>", opts)
+keymap("n", "<C-j>", ":cnext<CR>", opts)
 
 -- LocalFix List --
-keymap("n", "<M-l>", ":lopen<CR>", optn)
+keymap("n", "<S-l>", ":lopen<CR>", optn)
 keymap("n", "<S-q>", ":lclose<CR>", optn)
 keymap("n", "<S-j>", ":lnext<CR>", opts)
 keymap("n", "<S-k>", ":lprevious<CR>", opts)

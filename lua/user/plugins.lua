@@ -130,9 +130,6 @@ run = "./install.sh" }
 
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
-  use "lunarvim/darkplus.nvim"
-  use "folke/tokyonight.nvim"
-  -- use "lunarvim/colorschemes"
 
   -- Utility
   use "rcarriga/nvim-notify"
@@ -151,12 +148,6 @@ run = "./install.sh" }
   -- Debugging
   use "mfussenegger/nvim-dap"
   use "rcarriga/nvim-dap-ui"
-  -- use "theHamsta/nvim-dap-virtual-text"
-  -- use "Pocco81/DAPInstall.nvim"
-
-  -- Tabline
-  -- use "akinsho/bufferline.nvim"
-  -- use "tiagovla/scope.nvim"
 
   -- Statusline
   use "christianchiarulli/lualine.nvim"
@@ -173,7 +164,6 @@ run = "./install.sh" }
 
   -- Comment
   use "numToStr/Comment.nvim"
-  use "folke/todo-comments.nvim"
 
   -- Terminal
   use "akinsho/toggleterm.nvim"
@@ -239,37 +229,6 @@ run = "./install.sh" }
     run = "cd app && npm install",
     ft = "markdown",
   }
-
-  -- Graveyard
-  -- use "romgrk/nvim-treesitter-context"
-  -- use "mizlan/iswap.nvim"
-  -- use {'christianchiarulli/nvim-ts-rainbow'}
-  -- use "nvim-telescope/telescope-ui-select.nvim"
-  -- use "nvim-telescope/telescope-file-browser.nvim"
-  -- use 'David-Kunz/cmp-npm' -- doesn't seem to work
-  -- use { "christianchiarulli/JABS.nvim" }
-  -- use "lunarvim/vim-solidity"
-  -- use "tpope/vim-repeat"
-  -- use "Shatur/neovim-session-manager"
-  -- use "metakirby5/codi.vim"
-  -- use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
-  -- use "rcarriga/cmp-dap"
-  -- use "filipdutescu/renamer.nvim"
-  -- use "https://github.com/rhysd/conflict-marker.vim"
-  -- use "rebelot/kanagawa.nvim"
-  -- use "unblevable/quick-scope"
-  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use "gbprod/cutlass.nvim"
-  -- use "christianchiarulli/lsp-inlay-hints"
-  -- use "rmagatti/goto-preview"
-  -- use "stevearc/aerial.nvim"
-  -- use "nvim-lua/lsp_extensions.nvim"
-  -- use { "christianchiarulli/nvim-gps", branch = "text_hl" }
-  -- use "stevearc/stickybuf.nvim"
-  -- use "folke/trouble.nvim"
-  -- use "drybalka/tree-climber.nvim"
-  -- use "phaazon/hop.nvim"
-  -- use { "michaelb/sniprun", run = "bash ./install.sh" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

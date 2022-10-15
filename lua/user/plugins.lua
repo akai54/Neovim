@@ -63,16 +63,7 @@ return packer.startup(function(use)
   use "ray-x/lsp_signature.nvim"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
-  -- use "github/copilot.vim"
-  use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
-    end,
-  }
+
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
@@ -103,8 +94,7 @@ run = "./install.sh" }
   use "nvim-treesitter/playground"
   use "windwp/nvim-ts-autotag"
   use "nvim-treesitter/nvim-treesitter-textobjects"
-  -- use "wellle/targets.vim"
-  -- use "RRethy/nvim-treesitter-textsubjects"
+
   use "kylechui/nvim-surround"
   use {
     "abecodes/tabout.nvim",
@@ -113,15 +103,11 @@ run = "./install.sh" }
 
   -- Marks
   use "christianchiarulli/harpoon"
-  use "MattesGroeger/vim-bookmarks"
 
   -- Fuzzy Finder/Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
   use "tom-anders/telescope-vim-bookmarks.nvim"
-
-  -- Note Taking
-  use "mickael-menu/zk-nvim"
 
   -- Color
   use "NvChad/nvim-colorizer.lua"
@@ -137,7 +123,6 @@ run = "./install.sh" }
   use "ghillb/cybu.nvim"
   use "moll/vim-bbye"
   use "lewis6991/impatient.nvim"
-  use "lalitmee/browse.nvim"
 
   -- Registers
   use "tversteeg/registers.nvim"
@@ -194,9 +179,6 @@ run = "./install.sh" }
   use "mattn/webapi-vim"
   use "tpope/vim-fugitive"
 
-  -- Github
-  use "pwntester/octo.nvim"
-
   -- Editing Support
   use "windwp/nvim-autopairs"
   use "monaqa/dial.nvim"
@@ -208,14 +190,10 @@ run = "./install.sh" }
   use "junegunn/vim-slash"
 
   -- Motion
-  use "phaazon/hop.nvim"
-  -- use "jinh0/eyeliner.nvim"
+  use "christianchiarulli/hop.nvim"
 
   -- Keybinding
   use "folke/which-key.nvim"
-
-  -- Java
-  use "mfussenegger/nvim-jdtls"
 
   -- Rust
   use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }

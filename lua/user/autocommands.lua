@@ -293,7 +293,16 @@ ocaml("FileType", {
   callback = function()
     keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !ocamlopt % -o %:r && ./%:r<CR>", optn)
     keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !ocamlopt % -o %:r && ./%:r<CR>", optn)
-    keymap(0, "n", "<F12>", ":w<CR>:echo ''<CR>:w !./../_build/default/bin/main.exe<CR>", optn)
+    keymap(0, "n", "<F12>", ":w<CR>:echo ''<CR>:w !./../_build/default/bin/%:r.exe<CR>", optn)
+  end,
+  group = Compile,
+})
+
+asm("FileType", {
+  pattern = "asm",
+  callback = function()
+    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !spim -file '%'<CR>", optn)
+    keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !spim -file '%'<CR>", optn)
   end,
   group = Compile,
 })

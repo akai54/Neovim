@@ -192,7 +192,7 @@ run = "./install.sh" }
   use "junegunn/vim-slash"
 
   -- Motion
-  use "christianchiarulli/hop.nvim"
+  use "phaazon/hop.nvim"
 
   -- Keybinding
   use "folke/which-key.nvim"

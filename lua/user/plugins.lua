@@ -187,8 +187,7 @@ run = "./install.sh" }
   use "monaqa/dial.nvim"
   use "nacro90/numb.nvim"
   use "andymass/vim-matchup"
-  use "folke/zen-mode.nvim"
-  -- use "Pocco81/true-zen.nvim"
+  use "Pocco81/true-zen.nvim"
   use "karb94/neoscroll.nvim"
   use "junegunn/vim-slash"
 

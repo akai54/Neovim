@@ -108,8 +108,12 @@ keymap(
 )
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
 
--- Activate Distraction-free mode. --
-keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
+-- Activate true-zen mode. --
+keymap("n", "zt", ":TZFocus<CR>", opts)
+keymap("n", "zm", ":TZMinimalist<CR>", opts)
+keymap("n", "za", ":TZAtaraxis<CR>", opts)
+keymap("n", "zn", ":TZNarrow<CR>", opts)
+keymap("v", "zn", ":'<,'>TZNarrow<CR>", opts)
 
 -- Undotree --
 keymap("n", "<Leader>u", ":UndotreeShow<CR>", opts)

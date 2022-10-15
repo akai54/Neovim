@@ -121,11 +121,11 @@ keymap("n", "<leader>q", ":Bdelete<CR>", opts)
 -- QuickFix List --
 keymap("n", "<C-o>", ":copen<CR>", opts)
 keymap("n", "<C-q>", ":cclose<CR>", opts)
-keymap("n", "<A-h>", ":cprev<CR>", opts)
-keymap("n", "<A-j>", ":cnext<CR>", opts)
+keymap("n", "<M-k>", ":cprev<CR>", opts)
+keymap("n", "<M-j>", ":cnext<CR>", opts)
 
 -- LocalFix List --
-keymap("n", "<m-l>", ":lopen<CR>", optn)
+keymap("n", "<M-l>", ":lopen<CR>", optn)
 keymap("n", "<S-q>", ":lclose<CR>", optn)
 keymap("n", "<S-j>", ":lnext<CR>", opts)
 keymap("n", "<S-k>", ":lprevious<CR>", opts)
@@ -192,7 +192,7 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
-keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
 -- Insert --
 -- Press jk to leave insert mode

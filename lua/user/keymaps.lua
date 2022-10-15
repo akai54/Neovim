@@ -1,5 +1,6 @@
 M = {}
 local opts = { noremap = true, silent = true }
+local optn = { noremap = true, silent = false }
 
 local term_opts = { silent = true }
 
@@ -10,7 +11,7 @@ local keymap = vim.api.nvim_set_keymap
 keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-keymap("n", "<C-Space>", "<cmd>WhichKey \\<leader><cr>", opts)
+
 keymap("n", "<C-i>", "<C-i>", opts)
 
 -- Modes
@@ -29,10 +30,11 @@ keymap("n", "<m-k>", "<C-w>k", opts)
 keymap("n", "<m-l>", "<C-w>l", opts)
 keymap("n", "<m-tab>", "<c-6>", opts)
 
--- Tabs --
-keymap("n", "<m-t>", ":tabnew %<cr>", opts)
-keymap("n", "<m-y>", ":tabclose<cr>", opts)
-keymap("n", "<m-\\>", ":tabonly<cr>", opts)
+-- Resize with arrows --
+keymap("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-Down>", ":resize +2<CR>", opts)
+keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -108,33 +110,75 @@ keymap(
   opts
 )
 keymap("n", "<F7>", "<cmd>TSHighlightCapturesUnderCursor<cr>", opts)
-keymap("n", "<F8>", "<cmd>TSPlaygroundToggle<cr>", opts)
-keymap("n", "<F11>", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-keymap("n", "<F12>", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-keymap("v", "//", [[y/\V<C-R>=escape(@",'/\')<CR><CR>]], opts)
-keymap("n", "<C-p>", "<cmd>Telescope projects<cr>", opts)
-keymap("n", "<C-t>", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
--- keymap("n", "<C-s>", "<cmd>vsplit<cr>", opts)
+
+-- Activate Distraction-free mode. --
 keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
-keymap("n", "<c-n>", ":e ~/Notes/<cr>", opts)
 
-keymap("n", "-", ":lua require'lir.float'.toggle()<cr>", opts)
--- keymap("n", "<C-\\>", "<cmd>vsplit<cr>", opts)
--- vim.cmd[[nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]]
--- vim.cmd[[nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]]
--- keymap("n", "c*", [[/\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn]], opts)
--- keymap("n", "c#", [[?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN]], opts)
--- keymap("n", "gx", [[:execute '!brave ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
-keymap("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]], opts)
--- Change '<CR>' to whatever shortcut you like :)
--- vim.api.nvim_set_keymap("n", "<CR>", "<cmd>NeoZoomToggle<CR>", { noremap = true, silent = true, nowait = true })
-vim.api.nvim_set_keymap("n", "=", "<cmd>JABSOpen<cr>", { noremap = true, silent = true, nowait = true })
+-- Undotree --
+keymap("n", "<Leader>u", ":UndotreeShow<CR>", opts)
 
--- alt binds
--- keymap("n", "<m-s>", "<cmd>split<cr>", opts)
-keymap("n", "<m-v>", "<cmd>lua require('lsp_lines').toggle()<cr>", opts)
--- keymap("n", "<m-q>", "<cmd>:q<cr>", opts)
+-- QuickFix List --
+keymap("n", "<C-o>", ":copen<CR>", opts)
+keymap("n", "<C-q>", ":cclose<CR>", opts)
+keymap("n", "<A-h>", ":cprev<CR>", opts)
+keymap("n", "<A-j>", ":cnext<CR>", opts)
 
+-- LocalFix List --
+keymap("n", "<m-l>", ":lopen<CR>", optn)
+keymap("n", "<S-q>", ":lclose<CR>", optn)
+keymap("n", "<S-j>", ":lnext<CR>", opts)
+keymap("n", "<S-k>", ":lprevious<CR>", opts)
+
+-- Indent the Whole buffer
+keymap("n", "<F10>", "ggVG=<C-o>", opts)
+
+-- Telescope
+keymap("n", "<Leader>ts", ":Telescope live_grep<CR>", opts)
+keymap("n", "<Leader>tw", ":Telescope grep_string<CR>", opts)
+keymap("n", "<Leader>tf", ":Telescope find_files<CR>", opts)
+keymap("n", "<Leader>tc", ":Telescope git_commits previewer=false<CR><CR>", opts)
+keymap("n", "<Leader>tb", ":Telescope git_branches previewer=false<CR>", opts)
+keymap("n", "<Leader>to", ":Telescope oldfiles<CR>", opts)
+keymap("n", "<Leader>tp", ":Telescope projects<CR>", opts)
+keymap("n", "<Leader>tt", ":Telescope buffers<CR>", opts)
+keymap("n", "<Leader>tr", "<cmd>Telescope resume<cr>", opts)
+
+-- Fugitive
+keymap("n", "<Leader>gs", ":G<CR>", opts)
+keymap("n", "<Leader>gl", ":Gclog<CR>", opts)
+keymap("n", "<Leader>gb", ":Git blame<CR>", opts)
+keymap("n", "<Leader>gc", ":Git commit<CR>", opts)
+keymap("n", "<Leader>gp", ":Git push<CR>", opts)
+keymap("n", "<Leader>gf", ":Git fetch --all<CR>", opts)
+keymap("n", "<Leader>gm", ":Git merge<CR>", opts)
+
+-- Rename your file on disk, in git repo, reload it and preserve undo history.
+keymap("n", "<Leader>gn", ":GMove", opts)
+
+--[[ If you want add a file to the .gitignore from the gitstatus window, just
+press any number followd by g and I then save&quit the .gitignore. ]]
+
+--[[ When trying to resolve merge conflicts, check the status then go to
+the unstaged file with the conflict and press dv.
+You shall see 3 sides.
+The first one is the file on your local branch.
+The last one is the file from the repo.
+The one in the middle is the result file.
+Once you're finished do ctrl+w ctrl+o. ]]
+
+--[[ When trying to resolve merge conflicts, check the status then if you only
+want the repo file to replace the local file then press X then s.
+But if you the local file over the repo's one then press x then s. ]]
+
+-- Choose which side to pick from Right or Left when resolving merge conflicts
+keymap("n", "<Leader>ga", ":diffget //2<CR>", opts)
+keymap("n", "<Leader>g;", ":diffget //3<CR>", opts)
+
+-- New Lines + leave insert mode
+keymap("n", "<Leader>o", "o<ESC>k", opts)
+keymap("n", "<M-o>", "O<ESC>j", opts)
+
+-- Fn to show_documentation of anything. --
 M.show_documentation = function()
   local filetype = vim.bo.filetype
   if vim.tbl_contains({ "vim", "help" }, filetype) then
@@ -147,29 +191,21 @@ M.show_documentation = function()
     vim.lsp.buf.hover()
   end
 end
-vim.api.nvim_set_keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+keymap("n", "K", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
--- vim.api.nvim_set_keymap("n", "<m-b>", "<cmd>lua require('user.bfs').open()<cr>", opts)
--- vim.api.nvim_set_keymap("n", "<m-b>", "<cmd>JABSOpen<cr>", opts)
--- vim.api.nvim_set_keymap("n", "<m-e>", "NvimTreeToggle<cr>", opts)
--- vim.api.nvim_set_keymap(
---   "n",
---   "<m-f>",
---   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
---   opts
--- )
--- Comment
-keymap("n", "<m-/>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<m-/>", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+-- Insert --
+-- Press jk to leave insert mode
+keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
 
--- vim.api.nvim_set_keymap(
---   "n",
---   "<tab>",
---   "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
---   opts
--- )
+-- Visual --
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
 
--- vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('telescope.builtin').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>", opts)
+-- Press jk to leave insert mode
+keymap("v", "jk", "<ESC>", opts)
+keymap("v", "kj", "<ESC>", opts)
 
 vim.api.nvim_set_keymap(
   "n",

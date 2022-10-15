@@ -1,12 +1,3 @@
--- vim.api.nvim_create_autocmd({ "User" }, {
---   pattern = { "AlphaReady" },
---   callback = function()
---     vim.cmd [[
---       set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
---     ]]
---   end,
--- })
-
 vim.api.nvim_create_autocmd({ "User" }, {
   pattern = { "AlphaReady" },
   callback = function()
@@ -104,13 +95,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd "autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif"
--- vim.api.nvim_create_autocmd({ "BufEnter" }, {
---   callback = function()
---     vim.cmd [[
---       if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
---     ]]
---   end,
--- })
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
   callback = function()
@@ -123,6 +107,17 @@ vim.api.nvim_create_autocmd({ "CmdWinEnter" }, {
     vim.cmd "quit"
   end,
 })
+
+if vim.fn.has "nvim-0.8" == 1 then
+  vim.api.nvim_create_autocmd(
+    { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+    {
+      callback = function()
+        require("user.winbar").get_winbar()
+      end,
+    }
+  )
+end
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
   callback = function()
@@ -184,7 +179,7 @@ local format = vim.api.nvim_create_autocmd
 local code = vim.api.nvim_create_autocmd
 
 function My_lsp_errors()
-  vim.diagnostic.setloclist({ open = false })
+  vim.diagnostic.setloclist { open = false }
 end
 
 function My_formatting()
@@ -224,8 +219,7 @@ c("FileType", {
       0,
       "n",
       "<F9>",
-      ":w <bar> exec '!gcc '.shellescape('%').' -std=c11 -Wall -Wextra -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>"
-      ,
+      ":w <bar> exec '!gcc '.shellescape('%').' -std=c11 -Wall -Wextra -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>",
       optn
     )
   end,
@@ -239,8 +233,7 @@ cpp("FileType", {
       0,
       "n",
       "<F9>",
-      ":w <bar> exec '!g++ '.shellescape('%').' -std=c++17 -Wall -Wextra -Werror -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>"
-      ,
+      ":w <bar> exec '!g++ '.shellescape('%').' -std=c++17 -Wall -Wextra -Werror -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>",
       optn
     )
   end,

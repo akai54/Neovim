@@ -155,7 +155,13 @@ run = "./install.sh" }
   use "numToStr/Comment.nvim"
 
   -- Terminal
-  use "akinsho/toggleterm.nvim"
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = "v2.*",
+    config = function()
+      require("toggleterm").setup()
+    end,
+  }
 
   -- Project
   use "ahmedkhalf/project.nvim"

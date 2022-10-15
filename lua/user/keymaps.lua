@@ -117,6 +117,9 @@ keymap("n", "<C-z>", "<cmd>ZenMode<cr>", opts)
 -- Undotree --
 keymap("n", "<Leader>u", ":UndotreeShow<CR>", opts)
 
+-- Quit --
+keymap("n", "<leader>q", ":Bdelete<CR>", opts)
+
 -- QuickFix List --
 keymap("n", "<C-o>", ":copen<CR>", opts)
 keymap("n", "<C-q>", ":cclose<CR>", opts)
@@ -207,34 +210,11 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "jk", "<ESC>", opts)
 keymap("v", "kj", "<ESC>", opts)
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<tab>",
-  "<cmd>lua require('telescope').extensions.harpoon.marks(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Harpoon'})<cr>",
-  opts
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<s-tab>",
-  "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal'})<cr>",
-  opts
-)
--- vim.api.nvim_set_keymap("n", "<tab>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
-vim.api.nvim_set_keymap("n", "<m-g>", "<cmd>Telescope git_branches<cr>", opts)
-vim.api.nvim_set_keymap("n", "<s-enter>", "<cmd>TodoQuickFix<cr>", opts)
--- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+-- Move text up and down
+keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts)
 
-vim.cmd [[
-  function! QuickFixToggle()
-    if empty(filter(getwininfo(), 'v:val.quickfix'))
-      copen
-    else
-      cclose
-    endif
-  endfunction
-]]
-
-keymap("n", "<m-q>", ":call QuickFixToggle()<cr>", opts)
-keymap("n", "<c-l>", "<cmd>lua vim.lsp.codelens.run()<cr>", opts)
+-- Paste the content from the _dP. --
+keymap("v", "p", '"_dP', opts)
 
 return M

@@ -265,15 +265,6 @@ py("FileType", {
   group = Compile,
 })
 
-asm("FileType", {
-  pattern = "asm",
-  callback = function()
-    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
-    keymap(0, "v", "<F9>", ":w<CR>:echo ''<CR>:w !python3 -m seselab %<CR>", optn)
-  end,
-  group = Compile,
-})
-
 ocaml("FileType", {
   pattern = "ocaml",
   callback = function()

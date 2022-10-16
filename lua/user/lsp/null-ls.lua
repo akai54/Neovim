@@ -14,10 +14,13 @@ null_ls.setup {
       extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
     },
     formatting.black.with { extra_args = { "--fast" } },
-    --formatting.stylua,
+
+    formatting.stylua,
     formatting.shfmt,
     diagnostics.shellcheck,
-    --diagnostics.selene,
+    diagnostics.selene,
+    diagnostics.zsh,
+    diagnostics.flake8,
   },
 }
 
@@ -26,7 +29,7 @@ local unwrap = {
   filetypes = { "rust" },
   generator = {
     fn = function(params)
-      local diagnostics = {}
+      local diagnostics_2 = {}
       -- sources have access to a params object
       -- containing info about the current file and editor state
       for i, line in ipairs(params.content) do
@@ -34,19 +37,18 @@ local unwrap = {
         if col and end_col then
           -- null-ls fills in undefined positions
           -- and converts source diagnostics into the required format
-          table.insert(diagnostics, {
+          table.insert(diagnostics_2, {
             row = i,
             col = col,
             end_col = end_col,
             source = "unwrap",
-            message = "hey " .. os.getenv("USER") .. ", don't forget to handle this" ,
+            message = "hey " .. os.getenv "USER" .. ", don't forget to handle this",
             severity = 2,
           })
         end
       end
-      return diagnostics
+      return diagnostics_2
     end,
   },
 }
-
 null_ls.register(unwrap)

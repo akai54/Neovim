@@ -66,7 +66,6 @@ return packer.startup(function(use)
 
   use "RRethy/vim-illuminate"
   use "j-hui/fidget.nvim"
-  use { "lvimuser/lsp-inlayhints.nvim", branch = "readme" }
   use {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
@@ -128,8 +127,12 @@ run = "./install.sh" }
   use "lewis6991/impatient.nvim"
 
   -- Registers
-  use "tversteeg/registers.nvim"
-
+  use {
+    "tversteeg/registers.nvim",
+    config = function()
+      require("registers").setup()
+    end,
+  }
   -- Icon
   use "kyazdani42/nvim-web-devicons"
 

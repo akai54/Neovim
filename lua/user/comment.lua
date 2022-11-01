@@ -9,6 +9,14 @@ if not status_ok_1 then
 end
 
 comment.setup {
+  toggler = {
+    line = "gcc",
+    block = "gbc",
+  },
+  opleader = {
+    line = "gc",
+    block = "gb",
+  },
   ignore = "^$",
   pre_hook = function(ctx)
     -- For inlay hints

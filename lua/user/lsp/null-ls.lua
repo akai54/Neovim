@@ -20,7 +20,7 @@ null_ls.setup {
     diagnostics.shellcheck,
     diagnostics.selene,
     diagnostics.zsh,
-    diagnostics.flake8,
+    diagnostics.flake8.with { extra_args = { "--extend-ignore E266,E302,E401", "--max-line-length=90" } },
   },
 }
 

@@ -37,6 +37,8 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17", -- the font used in graphical neovim applications
   title = true,
+  spelllang = "en,fr,cjk",
+  spellsuggest = "best",
 }
 
 vim.opt.fillchars = vim.opt.fillchars + "eob: "

@@ -11,7 +11,6 @@ end
 local servers = {
   "cssls",
   "cssmodules_ls",
-  "emmet_ls",
   "html",
   "jsonls",
   "sumneko_lua",
@@ -21,6 +20,7 @@ local servers = {
   "bashls",
   "clangd",
   "rust_analyzer",
+  "ocamllsp"
 }
 
 local settings = {

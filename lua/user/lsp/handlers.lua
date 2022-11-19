@@ -62,7 +62,6 @@ M.setup = function()
   })
 end
 
-
 local function attach_navic(client, bufnr)
   vim.g.navic_silence = true
   local status_ok, navic = pcall(require, "nvim-navic")
@@ -82,7 +81,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lc", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<Leader>lo", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 M.on_attach = function(client, bufnr)
@@ -90,7 +89,7 @@ M.on_attach = function(client, bufnr)
   attach_navic(client, bufnr)
 
   if client.name == "tsserver" then
-    require("lsp-inlayhints").on_attach(client, bufnr)
+    require("user.lsp-inlayhints").on_attach(client, bufnr)
   end
 end
 

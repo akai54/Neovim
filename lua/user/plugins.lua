@@ -168,10 +168,6 @@ return packer.startup(function(use)
   use "ahmedkhalf/project.nvim"
   use "windwp/nvim-spectre"
 
-  -- Session
-  use "rmagatti/auto-session"
-  use "rmagatti/session-lens"
-
   -- Quickfix
   use "kevinhwang91/nvim-bqf"
 

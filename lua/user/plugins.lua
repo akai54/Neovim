@@ -91,7 +91,13 @@ return packer.startup(function(use)
       end, 100)
     end,
   }
-  use "zbirenbaum/copilot-cmp"
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  }
   use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- Snippet
@@ -126,6 +132,16 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
+  use {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      require("nightfox").setup {
+        options = {
+          transparent = true,
+        },
+      }
+    end,
+  }
 
   -- Utility
   use "rcarriga/nvim-notify"

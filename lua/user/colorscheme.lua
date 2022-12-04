@@ -1,5 +1,5 @@
 -- local colorscheme = "darkplus"
-local colorscheme = "nightfox"
+local colorscheme = "terafox"
 
 --vim.g.onedarker_italic_keywords = false
 

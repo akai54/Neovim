@@ -45,6 +45,11 @@ M.setup = function()
       prefix = "",
       -- width = 40,
     },
+    settings = {
+      Lua = {
+        diagnostics = { globals = { "vim" } },
+      },
+    },
   }
 
   vim.diagnostic.config(config)

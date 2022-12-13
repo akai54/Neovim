@@ -28,5 +28,5 @@ cybu.setup {
     },
   },
 }
-vim.keymap.set("n", "[", "<Plug>(CybuPrev)")
-vim.keymap.set("n", "]", "<Plug>(CybuNext)")
+vim.keymap.set("n", "<PageUp>", "<Plug>(CybuPrev)")
+vim.keymap.set("n", "<PageDown", "<Plug>(CybuNext)")

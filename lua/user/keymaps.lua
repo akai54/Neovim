@@ -22,6 +22,10 @@ keymap("n", "<S-Down>", ":resize +2<CR>", opts)
 keymap("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
+-- Beginning/End of the Line.
+keymap("n", "<C-H>", "^", opts)
+keymap("n", "<C-L>", "$", opts)
+
 -- Activate true-zen mode. --
 keymap("n", "zt", ":TZFocus<CR>", opts)
 keymap("n", "zm", ":TZMinimalist<CR>", opts)
@@ -55,10 +59,9 @@ keymap("n", "<Leader>ts", ":Telescope live_grep<CR>", opts)
 keymap("n", "<Leader>tw", ":Telescope grep_string<CR>", opts)
 keymap("n", "<Leader>tf", ":Telescope find_files<CR>", opts)
 keymap("n", "<Leader>tc", ":Telescope git_commits previewer=false<CR><CR>", opts)
-keymap("n", "<Leader>tb", ":Telescope git_branches previewer=false<CR>", opts)
 keymap("n", "<Leader>to", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<Leader>tp", ":Telescope projects<CR>", opts)
-keymap("n", "<Leader>tt", ":Telescope buffers<CR>", opts)
+keymap("n", "<Leader>tb", ":Telescope buffers<CR>", opts)
 keymap("n", "<Leader>tr", "<cmd>Telescope resume<cr>", opts)
 
 -- Fugitive

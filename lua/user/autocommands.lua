@@ -169,6 +169,7 @@ local c = vim.api.nvim_create_autocmd
 local cpp = vim.api.nvim_create_autocmd
 local go = vim.api.nvim_create_autocmd
 local js = vim.api.nvim_create_autocmd
+local ts = vim.api.nvim_create_autocmd
 local py = vim.api.nvim_create_autocmd
 local asm = vim.api.nvim_create_autocmd
 local ocaml = vim.api.nvim_create_autocmd
@@ -252,6 +253,14 @@ js("FileType", {
   callback = function()
     keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !node<CR>", optn)
     keymap(0, "v", "<F9>", ":w !node<CR>", optn)
+  end,
+  group = Compile,
+})
+ts("FileType", {
+  pattern = "typescript",
+  callback = function()
+    keymap(0, "n", "<F9>", ":w<CR>:echo ''<CR>:w !npx ts-node<CR>", optn)
+    keymap(0, "v", "<F9>", ":w !npx ts-node<CR>", optn)
   end,
   group = Compile,
 })

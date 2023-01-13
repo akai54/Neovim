@@ -20,7 +20,8 @@ local servers = {
   "bashls",
   "clangd",
   "rust_analyzer",
-  "ocamllsp"
+  "ocamllsp",
+    "astro"
 }
 
 local settings = {

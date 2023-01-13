@@ -6,18 +6,7 @@ end
 local keymap = vim.api.nvim_set_keymap
 
 local h_ui = require "harpoon.ui"
-local h_mark = require "harpoon.mark"
 
-keymap("n", "<Leader>ha", "", { -- Mark file
-  callback = function()
-    h_mark.add_file()
-  end,
-})
-keymap("n", "<Leader>hm", "", { -- Shows the menu
-  callback = function()
-    h_ui.toggle_quick_menu()
-  end,
-})
 keymap("n", "<Tab>", "", { -- Navigates to the next Mark
   callback = function()
     h_ui.nav_next()

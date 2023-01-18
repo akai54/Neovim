@@ -132,6 +132,7 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use "lunarvim/onedarker.nvim"
+  use "akai54/2077.nvim"
   use {
     "EdenEast/nightfox.nvim",
     config = function()

@@ -207,7 +207,7 @@ code("FileType", {
 code("FileType", {
   pattern = "cpp",
   callback = function()
-    keymap(0, "n", "<F12>", ":w !make && ./%:r<CR>", optn)
+    keymap(0, "n", "<F12>", ":w !bear -- make && ./%:r<CR>", optn)
   end,
   group = Compile,
 })

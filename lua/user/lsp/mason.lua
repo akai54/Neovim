@@ -21,7 +21,11 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "ocamllsp",
-    "astro"
+  "astro",
+  "lemminx",
+  "yamlls",
+  "tailwindcss",
+  "zk",
 }
 
 local settings = {

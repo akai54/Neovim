@@ -199,7 +199,7 @@ lsp("BufWrite,BufEnter,InsertLeave *", { callback = My_lsp_errors, group = LSP_e
 code("FileType", {
   pattern = "c",
   callback = function()
-    keymap(0, "n", "<F12>", ":w !make && ./%:r<CR>", optn)
+    keymap(0, "n", "<F12>", ":w !bear -- make && ./%:r<CR>", optn)
   end,
   group = Compile,
 })

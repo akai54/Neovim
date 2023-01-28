@@ -123,15 +123,19 @@ keymap("i", "kj", "<ESC>", opts)
 -- Go to the end or the beggining of the line.
 keymap("i", "<C-a>", "<ESC>A", opts)
 keymap("i", "<C-i>", "<ESC>I", opts)
+keymap("i", "JK", "<ESC>", opts)
+keymap("i", "KJ", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Press jk to leave insert mode
+-- Press jk to leave visual mode
 keymap("v", "jk", "<ESC>", opts)
 keymap("v", "kj", "<ESC>", opts)
+keymap("v", "JK", "<ESC>", opts)
+keymap("v", "KJ", "<ESC>", opts)
 
 -- Move text up and down
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts)

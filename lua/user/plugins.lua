@@ -241,6 +241,9 @@ return packer.startup(function(use)
   -- TailwindCSS colorizer
   use "roobert/tailwindcss-colorizer-cmp.nvim"
 
+  -- Escape different Nvim modes
+  use "max397574/better-escape.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

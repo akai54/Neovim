@@ -26,6 +26,7 @@ return {
         },
       },
       diagnostics = {
+        enable = false,
         globals = { "vim" },
       },
       workspace = {

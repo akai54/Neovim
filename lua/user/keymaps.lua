@@ -79,7 +79,6 @@ keymap("n", "<Leader>gn", ":GMove", opts)
 
 --[[ If you want add a file to the .gitignore from the gitstatus window, just
 press any number followd by g and I then save&quit the .gitignore. ]]
-
 --[[ When trying to resolve merge conflicts, check the status then go to
 the unstaged file with the conflict and press dv.
 You shall see 3 sides.
@@ -87,11 +86,9 @@ The first one is the file on your local branch.
 The last one is the file from the repo.
 The one in the middle is the result file.
 Once you're finished do ctrl+w ctrl+o. ]]
-
 --[[ When trying to resolve merge conflicts, check the status then if you only
 want the repo file to replace the local file then press X then s.
 But if you the local file over the repo's one then press x then s. ]]
-
 -- Choose which side to pick from Right or Left when resolving merge conflicts
 keymap("n", "<Leader>ga", ":diffget //2<CR>", opts)
 keymap("n", "<Leader>g;", ":diffget //3<CR>", opts)
@@ -102,24 +99,23 @@ keymap("n", "<M-o>", "O<ESC>j", opts)
 
 -- Fn to show_documentation of anything. --
 M.show_documentation = function()
-  local filetype = vim.bo.filetype
-  if vim.tbl_contains({ "vim", "help" }, filetype) then
-    vim.cmd("h " .. vim.fn.expand "<cword>")
-  elseif vim.tbl_contains({ "man" }, filetype) then
-    vim.cmd("Man " .. vim.fn.expand "<cword>")
-  elseif vim.fn.expand "%:t" == "Cargo.toml" then
-    require("crates").show_popup()
-  else
-    vim.lsp.buf.hover()
-  end
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({ "vim", "help" }, filetype) then
+        vim.cmd("h " .. vim.fn.expand "<cword>")
+    elseif vim.tbl_contains({ "man" }, filetype) then
+        vim.cmd("Man " .. vim.fn.expand "<cword>")
+    elseif vim.fn.expand "%:t" == "Cargo.toml" then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
 end
 keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
 -- Insert --
 -- Press jk to leave insert mode
-keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
-
+--[[ keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts) ]]
 -- Go to the end or the beggining of the line.
 keymap("i", "<C-a>", "<ESC>A", opts)
 keymap("i", "<C-i>", "<ESC>I", opts)
@@ -132,11 +128,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Press jk to leave visual mode
-keymap("v", "jk", "<ESC>", opts)
+--[[ keymap("v", "jk", "<ESC>", opts)
 keymap("v", "kj", "<ESC>", opts)
 keymap("v", "JK", "<ESC>", opts)
-keymap("v", "KJ", "<ESC>", opts)
-
+keymap("v", "KJ", "<ESC>", opts) ]]
 -- Move text up and down
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts)

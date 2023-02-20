@@ -143,6 +143,7 @@ return packer.startup(function(use)
       }
     end,
   }
+  use "https://github.com/igorgue/danger"
 
   -- Utility
   use "rcarriga/nvim-notify"

@@ -99,23 +99,20 @@ keymap("n", "<M-o>", "O<ESC>j", opts)
 
 -- Fn to show_documentation of anything. --
 M.show_documentation = function()
-    local filetype = vim.bo.filetype
-    if vim.tbl_contains({ "vim", "help" }, filetype) then
-        vim.cmd("h " .. vim.fn.expand "<cword>")
-    elseif vim.tbl_contains({ "man" }, filetype) then
-        vim.cmd("Man " .. vim.fn.expand "<cword>")
-    elseif vim.fn.expand "%:t" == "Cargo.toml" then
-        require("crates").show_popup()
-    else
-        vim.lsp.buf.hover()
-    end
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ "vim", "help" }, filetype) then
+    vim.cmd("h " .. vim.fn.expand "<cword>")
+  elseif vim.tbl_contains({ "man" }, filetype) then
+    vim.cmd("Man " .. vim.fn.expand "<cword>")
+  elseif vim.fn.expand "%:t" == "Cargo.toml" then
+    require("crates").show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
 end
 keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
 -- Insert --
--- Press jk to leave insert mode
---[[ keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts) ]]
 -- Go to the end or the beggining of the line.
 keymap("i", "<C-a>", "<ESC>A", opts)
 keymap("i", "<C-i>", "<ESC>I", opts)
@@ -128,10 +125,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Press jk to leave visual mode
---[[ keymap("v", "jk", "<ESC>", opts)
+keymap("v", "jk", "<ESC>", opts)
 keymap("v", "kj", "<ESC>", opts)
 keymap("v", "JK", "<ESC>", opts)
-keymap("v", "KJ", "<ESC>", opts) ]]
+keymap("v", "KJ", "<ESC>", opts)
 -- Move text up and down
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts)

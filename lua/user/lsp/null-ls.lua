@@ -6,7 +6,6 @@ end
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
-
 null_ls.setup {
     debug = false,
     sources = {
@@ -21,7 +20,6 @@ null_ls.setup {
         diagnostics.shellcheck,
         diagnostics.selene,
         diagnostics.zsh,
-        diagnostics.ruff,
     },
 }
 

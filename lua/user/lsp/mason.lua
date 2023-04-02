@@ -73,6 +73,13 @@ for _, server in pairs(servers) do
     opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
   end
 
+  if server == "tailwindcss" then
+    lspconfig.tailwindcss.setup {
+      on_attach = opts.on_attach,
+      capabilities = opts.capabilities,
+    }
+  end
+
   if server == "sumneko_lua" then
     local l_status_ok, lua_dev = pcall(require, "lua-dev")
     if not l_status_ok then

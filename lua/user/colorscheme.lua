@@ -1,5 +1,7 @@
 -- local colorscheme = "darkplus"
-local colorscheme = "onedarker"
+local colorscheme = "gruvbox-material"
+vim.o.background = "dark"
+vim.g.gruvbox_material_background = "hard"
 
 --vim.g.onedarker_italic_keywords = false
 
@@ -13,5 +15,5 @@ local colorscheme = "onedarker"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
-  return
+    return
 end

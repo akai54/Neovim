@@ -72,6 +72,7 @@ return packer.startup(function(use)
       require("lsp_lines").setup()
     end,
   }
+  use "fgheng/winbar.nvim"
 
   -- Completion
   use "christianchiarulli/nvim-cmp"
@@ -144,6 +145,7 @@ return packer.startup(function(use)
     end,
   }
   use "https://github.com/igorgue/danger"
+  use "sainnhe/gruvbox-material"
 
   -- Utility
   use "rcarriga/nvim-notify"

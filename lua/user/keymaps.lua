@@ -99,18 +99,20 @@ keymap("n", "<M-o>", "O<ESC>j", opts)
 
 -- Fn to show_documentation of anything. --
 M.show_documentation = function()
-  local filetype = vim.bo.filetype
-  if vim.tbl_contains({ "vim", "help" }, filetype) then
-    vim.cmd("h " .. vim.fn.expand "<cword>")
-  elseif vim.tbl_contains({ "man" }, filetype) then
-    vim.cmd("Man " .. vim.fn.expand "<cword>")
-  elseif vim.fn.expand "%:t" == "Cargo.toml" then
-    require("crates").show_popup()
-  else
-    vim.lsp.buf.hover()
-  end
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({ "vim", "help" }, filetype) then
+        vim.cmd("h " .. vim.fn.expand "<cword>")
+    elseif vim.tbl_contains({ "man" }, filetype) then
+        vim.cmd("Man " .. vim.fn.expand "<cword>")
+    elseif vim.fn.expand "%:t" == "Cargo.toml" then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
 end
 keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>", opts)
+
+keymap("n", "<CR>", ":w<CR>", opts)
 
 -- Insert --
 -- Go to the end or the beggining of the line.

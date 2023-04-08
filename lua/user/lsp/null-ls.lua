@@ -17,6 +17,7 @@ null_ls.setup {
 
         formatting.stylua,
         formatting.shfmt,
+        formatting.beautysh,
         diagnostics.shellcheck,
         diagnostics.selene,
         diagnostics.zsh,

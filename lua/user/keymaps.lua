@@ -112,7 +112,10 @@ M.show_documentation = function()
 end
 keymap("n", "<Leader>sd", ":lua require('user.keymaps').show_documentation()<CR>", opts)
 
+-- Save file using the Enter key --
 keymap("n", "<CR>", ":w<CR>", opts)
+
+keymap("n", "<ESC>", ":q<CR>", opts)
 
 -- Insert --
 -- Go to the end or the beggining of the line.
